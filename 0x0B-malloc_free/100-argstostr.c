@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdlib.h>
 /**
- * argstomy_string - main entry
+ * argstostr - main entry
  * @ac: argument count
  * @av: argument vector
  * Return: returns 0
