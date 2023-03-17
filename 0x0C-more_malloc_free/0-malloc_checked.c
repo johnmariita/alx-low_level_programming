@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include "main.h"
 /**
- * malloc - function to create memory
+ * malloc_checked - function to create memory
  * @b: size o fthe memory
  * Return: returns pointer to an address
  */
