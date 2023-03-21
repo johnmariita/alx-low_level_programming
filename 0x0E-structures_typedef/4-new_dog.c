@@ -9,46 +9,36 @@
  * Description: creates anew struct
  * Return: returns the created struct
  */
+char *_strcpy(char *dest, char *src);
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	int nc, oc;
 	int name_len, owner_len;
-	char *name_copy, *owner_copy;
-	dog_t *n_dog = malloc(sizeof(dog_t));
+	dog_t *dog;
 
-	if (n_dog == NULL)
-		return (NULL);
 	name_len = _strlen(name);
 	owner_len = _strlen(owner);
-	name_copy = malloc(sizeof(char) * name_len + 1);
-	if (name_copy == NULL)
+	dog = malloc(sizeof(dog_t));
+
+	if (dog == NULL)
+		return (NULL);
+
+	dog->name = malloc(sizeof(char) * (name_len + 1));
+	if (dog->name == NULL)
 	{
-		free(name_copy);
+		free(dog);
 		return (NULL);
 	}
-	while (name[nc] != '\0')
+	dog->owner = malloc(sizeof(char) * (owner_len + 1));
+	if (dog->owner == NULL)
 	{
-		name_copy[nc] = name[nc];
-		nc++;
-	}
-	name_copy[nc] = '\0';
-	owner_copy = malloc(sizeof(char) * owner_len + 1);
-	if (owner_copy == NULL)
-	{
-		free(name_copy);
-		free(owner_copy);
+		free(dog);
+		free(dog->name);
 		return (NULL);
 	}
-	while (owner[oc] != '\0')
-	{
-		owner_copy[oc] = owner[oc];
-		oc++;
-	}
-	owner_copy[oc] = '\0';
-	n_dog->name = name;
-	n_dog->age = age;
-	n_dog->owner = owner;
-	return (n_dog);
+	_strcpy(dog->name, name);
+	_strcpy(dog->owner, owner);
+	dog->age = age;
+	return (dog);
 }
 /**
  * _strlen - function to get string length
@@ -62,5 +52,31 @@ int _strlen(char *name)
 	while (name[count] != '\0')
 		count++;
 	return (count);
+}
+/**
+* *_strcpy - copies the string pointed to by src
+* including the terminating null byte (\0)
+* to the buffer pointed to by dest
+* @dest: pointer to the buffer in which we copy the string
+* @src: string to be copied
+*
+* Return: the pointer to dest
+*/
+char *_strcpy(char *dest, char *src)
+{
+	int len, i;
+
+	len = 0;
+
+	while (src[len] != '\0')
+	{
+		len++;
+	}
+	for (i = 0; i < len; i++)
+	{
+		dest[i] = src[i];
+	}
+	dest[i] = '\0';
+	return (dest);
 }
 
