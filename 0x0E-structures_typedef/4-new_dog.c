@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include "dog.h"
+#include <string.h>
 /**
  * new_dog - function to create a new dog struct
  * @name: name of the dog
@@ -7,7 +8,6 @@
  * @owner: dog's owner
  * Description: creates anew struct
  * Return: returns the created struct
- *
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
@@ -31,7 +31,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 		name_copy[nc] = name[nc];
 		nc++;
 	}
-	name[nc] = '\0';
+	name_copy[nc] = '\0';
 	owner_copy = malloc(sizeof(char) * owner_len + 1);
 	if (owner_copy == NULL)
 	{
@@ -50,3 +50,17 @@ dog_t *new_dog(char *name, float age, char *owner)
 	n_dog->owner = owner;
 	return (n_dog);
 }
+/**
+ * _strlen - function to get string length
+ * @name: string to get the length
+ * Return: returns length of string
+ */
+int _strlen(char *name)
+{
+	int count = 0;
+
+	while (name[count] != '\0')
+		count++;
+	return (count);
+}
+
