@@ -9,7 +9,6 @@
  * Description: creates anew struct
  * Return: returns the created struct
  */
-char *_strcpy(char *dest, char *src);
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	int name_len, owner_len;
