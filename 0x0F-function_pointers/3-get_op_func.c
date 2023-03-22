@@ -1,7 +1,8 @@
 #include "3-calc.h"
 /**
- *
- *
+ * get_op_func - function pointer to the function to be used
+ * @s: the operator
+ * Return: returns the function to be used
  */
 int (*get_op_func(char *s))(int, int)
 {
