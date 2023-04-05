@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 /**
- * free_listint - a function that frees a listint_t list
+ * free_listint22 - a function that frees a listint_t list
  * @head: pointer to the head of the  list
  */
 void free_listint2(listint_t **head)
