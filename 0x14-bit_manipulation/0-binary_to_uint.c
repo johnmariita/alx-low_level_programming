@@ -30,7 +30,7 @@ unsigned int binary_to_uint(const char *b)
 
 	if (b == NULL)
 	{
-		return (converted);
+		return (0);
 	}
 	for (i = c - 1; i >= 0; i--)
 	{
