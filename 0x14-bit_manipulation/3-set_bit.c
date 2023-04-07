@@ -33,5 +33,5 @@ int set_bit(unsigned long int *n, unsigned int index)
 	if (index >= sizeof(unsigned long int) * 8)
 		return (-1);
 	*n = *n | power(2, index);
-	return ((int)*n);
+	return (1);
 }
