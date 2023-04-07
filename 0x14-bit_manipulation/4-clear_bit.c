@@ -4,7 +4,7 @@
  * power - function that powers a number
  * @base: the base
  * @exp: the exponent
- *
+ * Return: returns the base powered
  */
 unsigned long int power(unsigned long int base, unsigned long int exp)
 {
@@ -29,7 +29,7 @@ unsigned long int power(unsigned long int base, unsigned long int exp)
 int clear_bit(unsigned long int *n, unsigned int index)
 {
 	if (index >= sizeof(unsigned long int) * 8)
-		return (-8);
+		return (-1);
 	*n &= ~(power(2, index));
 	return (1);
 }
