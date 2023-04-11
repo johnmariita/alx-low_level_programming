@@ -19,7 +19,7 @@ void copy(char *filename1, char *filename2)
 		dprintf(2, "Can't read from file %s\n", filename1);
 		exit(98);
 	}
-	fd_cpyto = open(filename2, O_WRONLY | O_CREAT | O_TRUNC | 0644);
+	fd_cpyto = open(filename2, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (fd_cpyto == EOF)
 	{
 		dprintf(2, "Can't write to file %s\n", filename2);
