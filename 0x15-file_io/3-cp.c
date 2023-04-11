@@ -5,7 +5,9 @@
 
 #define BUFSIZE 1024
 /**
- *
+ * copy - function that copies a file
+ * @filename1: first file name
+ * @filename2: second filename
  *
  */
 void copy(char *filename1, char *filename2)
@@ -51,7 +53,10 @@ void copy(char *filename1, char *filename2)
 	}
 }
 /**
- *
+ * main - main function
+ * @argc: argument count
+ * @argv: arguments
+ * Return: returns 1 0n success
  *
  */
 int main(int argc, char **argv)
