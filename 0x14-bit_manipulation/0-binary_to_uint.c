@@ -25,13 +25,14 @@ int slen(const char *s)
  */
 unsigned int binary_to_uint(const char *b)
 {
-	int c = slen(b), i;
+	int c, i;
 	unsigned int converted = 0;
 
-	if (b == NULL)
+	if (!b)
 	{
 		return (0);
 	}
+	c = slen(b);
 	for (i = c - 1; i >= 0; i--)
 	{
 		if (b[i] < '0' || b[i] > '1')
