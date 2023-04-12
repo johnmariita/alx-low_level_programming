@@ -29,7 +29,7 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
 	unsigned long int i = 0, count = 0;
 
-	for (; i < 31; i++)
+	for (; i < 64; i++)
 	{
 		if ((n & power(2, i)) == (m & power(2, i)))
 			count += 0;

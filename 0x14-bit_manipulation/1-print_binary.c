@@ -5,7 +5,7 @@
  * print_binary - function that prints a binary
  * @n: the integer to be printed in binary
  */
-void print_binary(unsigned long int n)
+void print_binary(unsigned long n)
 {
 	if (n > 1)
 	{
