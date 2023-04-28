@@ -1,11 +1,12 @@
+#include <stdlib.h>
 #include "dog.h"
 #include <stdio.h>
+
+
 /**
- * print_dog - function to print dog properties
- * @d: dog structure
- *
- *
- */
+* print_dog - function to print dog properties
+* @d: dog structure
+*/
 void print_dog(struct dog *d)
 {
 	if (d == NULL)
