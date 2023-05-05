@@ -8,7 +8,7 @@ int get_endianness(void)
 	unsigned int num = 1;
 	char *bit = (char *)&num;
 
-	if (*b == 1)
+	if (*bit == 1)
 		return (1);
 	else
 		return (0);
