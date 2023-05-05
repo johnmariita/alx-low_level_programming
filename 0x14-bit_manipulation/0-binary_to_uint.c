@@ -23,12 +23,13 @@ int powr(int base, int exp)
  */
 unsigned int binary_to_uint(const char *b)
 {
-	int len = strlen(b);
+	int len;
 	int myint = 0;
 	int i = 0;
 
-	if (b == NULL)
+	if (!b)
 		return (0);
+	len = strlen(b);
 	len--;
 	while (len >= 0)
 	{
