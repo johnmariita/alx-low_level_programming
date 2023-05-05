@@ -8,13 +8,13 @@
  */
 int main(void)
 {
-    print_binary(0);
+    print_binary(ULONG_MAX);
     printf("\n");
     print_binary(1);
     printf("\n");
-    print_binary(98);
+    print_binary(2);
     printf("\n");
-    print_binary(1024);
+    print_binary(3);
     printf("\n");
     print_binary((1 << 10) + 1);
     printf("\n");
