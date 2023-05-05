@@ -22,7 +22,7 @@ int powr(int base, int exp)
 int get_bit(unsigned long int n, unsigned int index)
 {
 	if (index > 64)
-		return (1);
+		return (0);
 	if ((n & powr(2, index)) > 0)
 		return (1);
 	else
