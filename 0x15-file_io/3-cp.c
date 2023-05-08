@@ -14,6 +14,7 @@ int main(int argc, char **argv)
 	int fd_from;
 	int fd_to;
 	ssize_t bytes_read, bytes_written;
+	size_t count = 0;
 	char *buf[1024];
 
 	if (argc != 3)
@@ -31,7 +32,9 @@ int main(int argc, char **argv)
 		printf("Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
-	bytes_written = write(fd_to, buf, 1024);
+	while (buf[count] != '\0')
+		count++;
+	bytes_written = write(fd_to, buf, count);
 	if (fd_to == -1 || bytes_written == -1)
 	{
 		close(fd_from);
