@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 		exit(97);
 	}
 	fd_from = open(argv[1], O_RDONLY);
-	fd_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	fd_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	bytes_read = read(fd_from, buf, 1024);
 	if (bytes_read == -1 || fd_from == -1)
 	{
