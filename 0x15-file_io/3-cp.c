@@ -15,7 +15,7 @@ int main(int argc, char **argv)
 	int fd_to;
 	ssize_t bytes_read, bytes_written;
 	size_t count = 0;
-	char buf[1024];
+	char *buf = NULL;
 
 	if (argc != 3)
 	{
