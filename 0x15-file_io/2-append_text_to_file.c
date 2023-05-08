@@ -28,13 +28,13 @@ int append_text_to_file(const char *filename, char *text_content)
 	if (fd == EOF)
 	{
 		close(fd);
-		return (-2);
+		return (-1);
 	}
 	bytes_written = write(fd, text_content, slen);
 	if (bytes_written == -1)
 	{
 		close(fd);
-		return (-3);
+		return (-1);
 	}
 	close(fd);
 	return (1);
