@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 
+#define BUFFSIZE 1024
 /**
  * main - the main function
  * @argc: argument count
@@ -11,11 +12,9 @@
  */
 int main(int argc, char **argv)
 {
-	int fd_from;
-	int fd_to;
+	int fd_from, fd_to;
 	ssize_t bytes_read, bytes_written;
-	size_t count = 0;
-	char *buf = NULL;
+	char buf[BUFFSIZE];
 
 	if (argc != 3)
 	{
@@ -24,18 +23,16 @@ int main(int argc, char **argv)
 	}
 	fd_from = open(argv[1], O_RDONLY);
 	fd_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
-	bytes_read = read(fd_from, buf, 1024);
-	if (bytes_read == -1 || fd_from == -1)
+	bytes_read = read(fd_from, buf, BUFFSIZE);
+	if (fd_from == -1)
 	{
 		close(fd_from);
 		close(fd_to);
 		printf("Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
-	while (buf[count] != '\0')
-		count++;
-	bytes_written = write(fd_to, buf, count);
-	if (fd_to == -1 || bytes_written == -1)
+	bytes_written = write(fd_to, buf, bytes_read);
+	if (fd_to == EOF || bytes_written != bytes_read)
 	{
 		close(fd_from);
 		close(fd_to);
