@@ -44,7 +44,6 @@ int main(int argc, char *argv[])
 {
 	ssize_t from, to, bytes_read;
 	ssize_t bytes_written;
-	int tot_read = 0;
 	char buffer[1024];
 
 	if (argc != 3)
@@ -53,13 +52,12 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 	from = read_file_opener(argv[1]);
+	to = write_file_opener(argv[2]);
 	while (bytes_read > 0)
 	{
 		bytes_read = read(from, buffer, 1024);
-		tot_read += bytes_read;
+		bytes_written = write(to, buffer, bytes_read);
 	}
-	to = write_file_opener(argv[2]);
-	bytes_written = write(to, buffer, tot_read);
 	if (close(from) == -1)
 	{
 		dprintf(2, "Error: Can't close fd %li\n", from);
