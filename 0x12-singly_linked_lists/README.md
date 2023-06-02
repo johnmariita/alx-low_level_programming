@@ -1,2 +1,0 @@
-#DATA STRUCTURES
-Linked lists
