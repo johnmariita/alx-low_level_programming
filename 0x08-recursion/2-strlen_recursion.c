@@ -8,12 +8,7 @@
  */
 int _strlen_recursion(char *s)
 {
-	static int count;
-
-	if (*s != '\0')
-	{
-		_strlen_recursion(s + 1);
-		count++;
-	}
-	return (count);
+	if (*s == '\0')
+		return (0);
+	return (1 + _strlen_recursion(s + 1));
 }
