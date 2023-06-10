@@ -45,5 +45,6 @@ int main(int argc, char **argv)
 		i++;
 	}
 	printf("%d\n", sum);
+	printf("%d\n", 101 % 25);
 	return (0);
 }
