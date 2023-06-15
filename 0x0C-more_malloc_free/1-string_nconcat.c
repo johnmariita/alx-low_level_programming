@@ -18,7 +18,7 @@ int _strlen(char *str)
  * string_nconcat - concatanates two string
  * @s1: the 1st string
  * @s2: the 2nd string
- * n: the number of bytes that should be copied from s2
+ * @n: the number of bytes that should be copied from s2
  * Return: returns the concatanated string
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
@@ -46,5 +46,6 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		i++;
 		j++;
 	}
+	new_string[i] = '\0';
 	return (new_string);
 }
