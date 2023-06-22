@@ -27,12 +27,13 @@ void print_all(const char * const format, ...)
 			case 's':
 				string = va_arg(ap, char *);
 				if (string == NULL)
-					printf("(nil)");
-				else
 				{
-					while (*string)
-						putchar(*(string++));
+					printf("(nil)");
+					i++;
+					continue;
 				}
+				while (*string)
+					putchar(*(string++));
 				break;
 			case 'f':
 				printf("%f", va_arg(ap, double));
