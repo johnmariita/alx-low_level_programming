@@ -26,6 +26,8 @@ unsigned int binary_to_uint(const char *b)
 	int len = strlen(b) - 1;
 	unsigned int sum = 0, i = 0;
 
+	if (b == NULL)
+		return (0);
 	while (len >= 0)
 	{
 		if (b[len] >  '1' || b[len] < '0')
