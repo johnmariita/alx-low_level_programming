@@ -4,7 +4,7 @@
 
 /**
  * flip_bits - function that returns bits to be flipped
- * @n: the 1st integer
+ * @n: the 1st integer to be compared
  * @m: the 2nd integer
  * Return: returns the number of bits to be flipped
  */
