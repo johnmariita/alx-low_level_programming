@@ -23,7 +23,5 @@ int powr(int base, int exp)
  */
 int get_bit(unsigned long int n, unsigned int index)
 {
-	if (index < 0)
-		return (-1);
 	return (((n & powr(2, (int)index)) > 0 ? 1 : 0));
 }
