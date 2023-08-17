@@ -5,7 +5,7 @@
 /**
  * dlistint_len - function that returns the length of a list
  * @h: pointer to the head of the list
- * Returrn: returns the count of nodes
+ * Return: returns the count of nodes
  */
 size_t dlistint_len(const dlistint_t *h)
 {
