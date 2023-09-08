@@ -38,9 +38,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			ptr->value = strdup(value);
 			return (1);
 		}
-		while (ptr->next)
-			ptr = ptr->next;
-		ptr->next = item;
+		item->next = ptr;
+		ht->array[hash_code] = item;
 	}
 	else
 		ht->array[hash_code] = item;
