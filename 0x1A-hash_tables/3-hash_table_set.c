@@ -16,15 +16,15 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	hash_node_t *item = NULL;
 	hash_node_t *ptr = ht->array[hash_code];
 
+	if (strcmp(key, "") == 0)
+		return (0);
 	item = malloc(sizeof(hash_node_t));
 	if (item == NULL)
 		return (0);
 	item->key = malloc(strlen(key) + 1);
 	if (item->key == NULL)
 		return (0);
-	item->value = malloc(strlen(value) + 1);
-	if (item->value == NULL)
-		return (0);
+	item->value = strdup(value);
 	item->next = NULL;
 	strcpy(item->key, key);
 	strcpy(item->value, value);
