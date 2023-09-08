@@ -43,7 +43,7 @@ int main(void)
     printf("%s:%s\n", "hetairas", value);
     value = hash_table_get(ht, "mentioner");
     printf("%s:%s\n", "mentioner", value);
-    value = hash_table_get(ht, "javascript");
-    printf("%s:%s\n", "javascript", value);
+    value = hash_table_get(ht, "");
+    printf("%s:%s\n", "", value);
     return (EXIT_SUCCESS);
 }
