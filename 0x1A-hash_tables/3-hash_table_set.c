@@ -3,20 +3,38 @@
 #include <string.h>
 #include "hash_tables.h"
 
+/**
+ * hash_table_set - function that sets aup a hash table
+ * @ht: the hash table
+ * @key: a key to be inserted to the hash table
+ * @value: the value to the key
+ * Return: returns 1 on success, 0 on error
+ */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int hash_code = hash_djb2((unsigned char *) key) % ht->size;
-	hash_node_t *item = malloc(sizeof(hash_node_t));
+	hash_node_t *item = NULL;
+	hash_node_t *ptr = ht->array[hash_code];
+
+	item = malloc(sizeof(hash_node_t));
 	if (item == NULL)
-		return 0;
+		return (0);
 	item->key = malloc(strlen(key) + 1);
 	if (item->key == NULL)
-		return 0;
+		return (0);
 	item->value = malloc(strlen(value) + 1);
 	if (item->value == NULL)
-		return 0;
+		return (0);
+	item->next = NULL;
 	strcpy(item->key, key);
 	strcpy(item->value, value);
-	ht->array[hash_code] = item;
-	return 1;
+	if (ptr)
+	{
+		while (ptr->next)
+			ptr = ptr->next;
+		ptr->next = item;
+	}
+	else
+		ht->array[hash_code] = item;
+	return (1);
 }

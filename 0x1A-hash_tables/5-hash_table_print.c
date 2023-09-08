@@ -2,10 +2,15 @@
 #include <stdlib.h>
 #include "hash_tables.h"
 
+/**
+ * hash_table_print - function that prints the hash table
+ * @ht: the hash table
+ */
 void hash_table_print(const hash_table_t *ht)
 {
 	unsigned long int i = 0;
 	int first = 0;
+	hash_node_t *ptr = NULL;
 
 	printf("{");
 	while (i < ht->size)
@@ -14,11 +19,23 @@ void hash_table_print(const hash_table_t *ht)
 		{
 			if (first == 0)
 			{
-				printf("'%s': '%s'", ht->array[i]->key, ht->array[i]->value);
+				ptr = ht->array[i];
+				while (ptr)
+				{
+					printf("'%s': '%s'", ptr->key, ptr->value);
+					ptr = ptr->next;
+				}
 				first = 1;
 			}
 			else
-				printf(", '%s': '%s'", ht->array[i]->key, ht->array[i]->value);	
+			{
+				ptr = ht->array[i];
+				while (ptr)
+				{
+					printf(", '%s': '%s'", ptr->key, ptr->value);
+					ptr = ptr->next;
+				}
+			}
 		}
 		i++;
 	}
