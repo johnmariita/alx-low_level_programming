@@ -27,9 +27,17 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	item->value = strdup(value);
 	item->next = NULL;
 	strcpy(item->key, key);
-	strcpy(item->value, value);
 	if (ptr)
 	{
+		if (strcmp(ptr->key, key) == 0)
+		{
+			free(item->key);
+			free(item->value);
+			free(item);
+			free(ptr->value);
+			ptr->value = strdup(value);
+			return (1);
+		}
 		while (ptr->next)
 			ptr = ptr->next;
 		ptr->next = item;
