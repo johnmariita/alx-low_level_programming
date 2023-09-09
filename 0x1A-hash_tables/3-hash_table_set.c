@@ -16,9 +16,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	hash_node_t *item = NULL;
 	hash_node_t *ptr = ht->array[hash_code];
 
-	if (strcmp(key, "") == 0)
-		return (0);
 	if (ht == NULL)
+		return (0);
+	if (strcmp(key, "") == 0)
 		return (0);
 	item = malloc(sizeof(hash_node_t));
 	if (item == NULL)
