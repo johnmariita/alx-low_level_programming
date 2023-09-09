@@ -12,35 +12,34 @@ void hash_table_print(const hash_table_t *ht)
 	int first = 0;
 	hash_node_t *ptr = NULL;
 
+	if (!ht)
+		return;
 	printf("{");
-	if (ht)
+	while (i < ht->size)
 	{
-		while (i < ht->size)
+		if (ht->array[i])
 		{
-			if (ht->array[i])
+			if (first == 0)
 			{
-				if (first == 0)
+				ptr = ht->array[i];
+				while (ptr)
 				{
-					ptr = ht->array[i];
-					while (ptr)
-					{
-						printf("'%s': '%s'", ptr->key, ptr->value);
-						ptr = ptr->next;
-					}
-					first = 1;
+					printf("'%s': '%s'", ptr->key, ptr->value);
+					ptr = ptr->next;
 				}
-				else
+				first = 1;
+			}
+			else
+			{
+				ptr = ht->array[i];
+				while (ptr)
 				{
-					ptr = ht->array[i];
-					while (ptr)
-					{
-						printf(", '%s': '%s'", ptr->key, ptr->value);
-						ptr = ptr->next;
-					}
+					printf(", '%s': '%s'", ptr->key, ptr->value);
+					ptr = ptr->next;
 				}
 			}
-			i++;
 		}
+		i++;
 	}
 	printf("}\n");
 }
