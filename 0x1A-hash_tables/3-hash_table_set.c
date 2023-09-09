@@ -12,7 +12,7 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	unsigned long int hash_code = hash_djb2((unsigned char *) key) % ht->size;
+	unsigned long int hash_code;
 	hash_node_t *item = NULL;
 	hash_node_t *ptr;
 
@@ -20,6 +20,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 	if (strcmp(key, "") == 0)
 		return (0);
+	hash_code = hash_djb2((unsigned char *) key) % ht->size;
 	ptr = ht->array[hash_code];
 	item = malloc(sizeof(hash_node_t));
 	if (item == NULL)
