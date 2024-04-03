@@ -1,3 +1,4 @@
+# Makefile
 CC = gcc
 SRC = $(wildcard *.c)
 all:
