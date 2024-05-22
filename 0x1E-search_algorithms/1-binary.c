@@ -21,7 +21,7 @@ int search(int *array, int low, int high, int x)
 		return (-1);
 	for (i = low; i <= high; i++)
 	{
-		if (i != high - 1)
+		if (i != high)
 			printf("%d, ", array[i]);
 		else
 			printf("%d\n", array[i]);
