@@ -17,7 +17,7 @@ int search(int *array, int low, int high, int x)
 
 	printf("Searching in array: ");
 
-	if (low >= high)
+	if (low > high)
 		return (-1);
 	for (i = low; i <= high; i++)
 	{
