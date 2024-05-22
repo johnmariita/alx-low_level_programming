@@ -19,7 +19,7 @@ int search(int *array, int low, int high, int x)
 
 	if (low >= high)
 		return (-1);
-	for (i = low; i < high; i++)
+	for (i = low; i <= high; i++)
 	{
 		if (i != high - 1)
 			printf("%d, ", array[i]);
