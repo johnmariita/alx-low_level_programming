@@ -31,7 +31,7 @@ int search(int *array, int low, int high, int x)
 	if (array[mid] < x)
 		return (search(array, mid + 1, high, x));
 	else
-		return (search(array, low, mid - 1, x));
+		return (search(array, low, mid, x));
 }
 
 /**
@@ -45,5 +45,5 @@ int advanced_binary(int *array, size_t size, int value)
 {
 	if (!array)
 		return (-1);
-	return (search(array, 0, size, value));
+	return (search(array, 0, size - 1, value));
 }
