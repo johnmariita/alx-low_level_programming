@@ -15,10 +15,10 @@ int search(int *array, int low, int high, int x)
 	int mid = low + (high - low) / 2;
 	int i;
 
-	printf("Searching in array: ");
 
 	if (low > high)
 		return (-1);
+	printf("Searching in array: ");
 	for (i = low; i <= high; i++)
 	{
 		if (i != high)
