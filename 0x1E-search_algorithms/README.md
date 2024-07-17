@@ -1,1 +1,1 @@
-Tasks on search algorithms
+A directory on search algorithms.

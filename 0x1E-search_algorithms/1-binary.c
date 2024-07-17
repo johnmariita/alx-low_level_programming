@@ -2,48 +2,50 @@
 #include "search_algos.h"
 
 /**
- * search - function that uses the binary search algo
- * recuesively
- * @array: the array to search on
- * @low: the lowest index in the array
- * @high: the highest index
- * @x: the value to search
- * Return: return the index of the array and -1 if it's absent
+ * binary - Function that searches through an array recursively
+ * @arr: the array
+ * @low: First index to start the search at
+ * @hi: last index where the search should end at
+ * @val: the value to search for
+ * Return: returns the index of the array or -1 if not found
  */
-int search(int *array, int low, int high, int x)
+int binary(int *arr, int low, int hi, int val)
 {
-	int mid = low + (high - low) / 2;
 	int i;
+	int mid = low + (hi - low) / 2;
 
-
-	if (low > high)
-		return (-1);
-	printf("Searching in array: ");
-	for (i = low; i <= high; i++)
+	if (low <= hi)
 	{
-		if (i != high)
-			printf("%d, ", array[i]);
+		printf("Searching in array: ");
+		for (i = low; i <= hi; i++)
+		{
+			if (i != hi)
+				printf("%d, ", arr[i]);
+			else
+				printf("%d\n", arr[i]);
+		}
+		if (arr[mid] == val)
+			return (mid);
+		if (arr[mid] > val)
+		{
+			return (binary(arr, low, mid - 1, val));
+		}
 		else
-			printf("%d\n", array[i]);
+			return (binary(arr, mid + 1, hi, val));
 	}
-	if (array[mid] == x)
-		return (array[mid]);
-	if (array[mid] < x)
-		return (search(array, mid + 1, high, x));
-	else
-		return (search(array, low, mid - 1, x));
+	return (-1);
 }
 
 /**
- * binary_search - function that calls the binary search function
+ * binary_search - Function that calls the recursive function
  * @array: the array to search
  * @size: the size of the array
  * @value: the value to search for
- * Return: returns the value returned by the search algorithm
+ * Return: returns the value from the binary function
  */
 int binary_search(int *array, size_t size, int value)
 {
 	if (!array)
 		return (-1);
-	return (search(array, 0, size - 1, value));
+	return (binary(array, 0, size - 1, value));
 }
